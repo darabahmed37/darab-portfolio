@@ -1,13 +1,11 @@
-import Navbar from "../Components/Navbar.tsx";
+import Header from "../Components/Header.tsx";
+import Intro from "../Components/Intro.tsx";
 
 const Home = () => {
     return (
-        <div className="bg-background min-h-screen">
-            <header className={"flex items-start"}>
-                <div className="w-px h-[191px] bg-gray-400 translate-x-5"></div>
-
-                <Navbar/>
-            </header>
+        <div className="bg-background min-h-screen" id="homeContainer">
+            <Header/>
+            <Intro/>
         </div>
     );
 };
