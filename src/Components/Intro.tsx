@@ -1,5 +1,7 @@
 import {TypeAnimation} from "react-type-animation";
 import {useEffect, useState} from "react";
+import coderImage from "@assets/coder.svg";
+import meshImage from "@assets/mesh.svg";
 
 const techTags = [
     "React",
@@ -11,6 +13,17 @@ const techTags = [
     "Docker",
     "AWS",
     "SQL",
+    "Databases",
+    "Multithreaded Applications",
+    "Headless Services",
+    "ORMs",
+    "Raw Queries",
+    "REST APIs",
+    "TypeScript",
+    "Microservices",
+    "CI/CD",
+    "Redis",
+    "Linux",
 ];
 
 const Intro = () => {
@@ -61,7 +74,31 @@ const Intro = () => {
                 </button>
             </div>
 
-            <div className="right_intro flex-1">{/* Optional visual */}</div>
+            <div className="right_intro flex-1 flex items-center flex-col  overflow-hidden">
+                <div className="w-full h-[80%] overflow-hidden relative">
+                    <img
+                        src={coderImage}
+                        alt="Coder"
+                        className="w-full max-h-full  object-top"
+                        style={{
+                            height: "27em",
+                            transform: "scale(2.2) translate(-13px,72px)",
+                        }}
+                    />
+                    <img
+                        src={meshImage}
+                        alt="mesh"
+                        className="absolute bottom-[43px] right-[85px]"
+                    />
+                </div>
+
+                <div className="flex items-center gap-1 mt-2 border p-1 rounded-md max-w-full border-gray-300">
+                    <div className="w-4 h-4 shadow-lg  !bg-primary"/>
+                    <p className="text-base text-gray ">
+                        Currently Working on <strong className={"text-white"}>Portfolio</strong>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };

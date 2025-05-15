@@ -12,3 +12,9 @@
     font-optical-sizing: auto;
     @apply bg-transparent;
 }
+
+.coder_image {
+    @apply object-cover object-top max-w-full;
+    max-height: 500px;
+    height: 100%;
+}
