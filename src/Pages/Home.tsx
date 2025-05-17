@@ -1,5 +1,6 @@
 import Header from "../Components/Header.tsx";
 import Intro from "../Components/Intro.tsx";
+import Projects from "../Components/Heading.tsx";
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                 </div>
             </div>
 
+            <Projects/>
         </div>
     );
 };
