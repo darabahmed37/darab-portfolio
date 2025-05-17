@@ -92,7 +92,10 @@ const Intro = () => {
                     />
                 </div>
 
-                <div className="flex items-center gap-1 mt-2 border p-1 rounded-md max-w-full border-gray-300">
+                <div className="flex items-center gap-1 mt-2 border p-1 rounded-md max-w-full pr-20 border-gray-300"
+                     style={{
+                         transform: "translateX(34px)"
+                     }}>
                     <div className="w-4 h-4 shadow-lg  !bg-primary"/>
                     <p className="text-base text-gray ">
                         Currently Working on <strong className={"text-white"}>Portfolio</strong>

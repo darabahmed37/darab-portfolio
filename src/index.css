@@ -13,8 +13,54 @@
     @apply bg-transparent;
 }
 
-.coder_image {
-    @apply object-cover object-top max-w-full;
-    max-height: 500px;
-    height: 100%;
+.quote, .bottom-quote {
+    position: relative;
+}
+
+.quote::before {
+    content: "";
+    position: absolute;
+    font-size: 4rem;
+    background: url("/src/assets/quote.svg") no-repeat center;
+    background-size: contain;
+    top: -1.5rem;
+    width: 25px;
+    height: 25px;
+    transform: translate(24px, 10px);
+    z-index: 2;
+    left: -1rem;
+}
+
+
+.bottom-quote:before {
+    content: "";
+    position: absolute;
+    font-size: 4rem;
+    background: url("/src/assets/quote.svg") no-repeat center;
+    background-size: contain;
+    top: -1.5rem;
+    width: 25px;
+    height: 25px;
+    transform: translate(80px, 10px);
+    z-index: 2;
+    left: -1rem;
+}
+
+
+#homeContainer {
+    position: relative;
+}
+
+#homeContainer:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 500px;
+    background-image: url("/src/assets/square.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 82px;
+    height: 91px;
+    z-index: 2;
 }
