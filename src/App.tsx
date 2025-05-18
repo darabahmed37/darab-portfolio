@@ -4,6 +4,7 @@ import AboutMe from "./Pages/AboutMe.tsx";
 import Header from "./Components/Header.tsx";
 import ScrollToTop from "./Components/scrollToTop.ts";
 import Footer from "./Components/Footer.tsx";
+import ContactMe from "./Pages/ContactMe.tsx";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/contact" element={<ContactMe />} />
+
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
         <Footer />

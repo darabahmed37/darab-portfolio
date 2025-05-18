@@ -10,7 +10,7 @@ const Navbar = () => {
       </div>
       <div>
         <ul className="flex space-x-6">
-          {["home", "work", "about-me", "contact"].map((value, index) => (
+          {["home", "about-me", "contact"].map((value, index) => (
             <li key={index}>
               <NavLink
                 to={`/${value}`}

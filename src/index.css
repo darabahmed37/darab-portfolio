@@ -73,11 +73,12 @@
 #rightCornerMesh {
     position: absolute;
     left: 0;
-    top: 1500px
+    top: 1500px;
 }
 
 @media (max-height: 1400px) {
-    #project-rectangle, #rightCornerMesh {
+    #project-rectangle,
+    #rightCornerMesh {
         display: none;
     }
 }
@@ -86,4 +87,65 @@
     position: absolute;
     bottom: -70px;
     left: -173px;
+}
+
+/* global.css or inside your component with <style jsx> */
+
+.react-datepicker {
+    background-color: #fff !important;
+    color: #333 !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1) !important;
+    border: 1px solid #d1d5db !important; /* gray-300 */
+}
+
+.react-datepicker__header {
+    background-color: #f9fafb !important; /* gray-50 */
+    border-bottom: 1px solid #d1d5db !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+    color: #4b5563 !important; /* gray-600 */
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__time-container
+.react-datepicker__time
+.react-datepicker__time-box
+ul
+li.react-datepicker__time-list-item--selected {
+    background-color: #2563eb !important; /* primary blue */
+    color: white !important;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__time-list-item:hover {
+    background-color: #bfdbfe !important; /* light blue */
+    color: #1e40af !important; /* darker blue */
+}
+
+.react-datepicker-wrapper {
+    width: 100% !important;
+}
+
+.react-datepicker * {
+    font-family: "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "Roboto",
+    "Fira Sans",
+    "Fira Code",
+    "Ubuntu",
+    "Cantarell",
+    "Noto Sans",
+    sans-serif !important;
+    font-smooth: antialiased !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    /* optional: better font rendering */
 }

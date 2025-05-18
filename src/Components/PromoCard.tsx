@@ -21,7 +21,7 @@ const PromoCard = ({
 
   return (
     <>
-      <div className="border border-gray w-80 transform transition-transform duration-300 ease-in-out hover:scale-105">
+      <div className="border border-gray w-80 max-[1366px]:w-64 transform transition-transform duration-300 ease-in-out hover:scale-105">
         <div className=" max-w-xl aspect-video w-full">
           <img
             src={imageSrc}
