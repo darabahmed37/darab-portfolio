@@ -21,16 +21,12 @@ const PromoCard = ({
 
   return (
     <div className="border border-gray w-80">
-      <div
-        className=" max-w-xl aspect-video"
-        style={{
-          width: "19.8em",
-        }}
-      >
+      <div className=" max-w-xl aspect-video w-full">
         <img
           src={imageSrc}
           alt="Sample"
           className="w-full h-full object-cover"
+          loading={"lazy"}
         />
       </div>
       <div className="flex flex-wrap gap-2 border-t border-b border-gray-300 py-2">

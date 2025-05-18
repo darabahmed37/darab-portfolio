@@ -1,6 +1,18 @@
 import Heading from "./Heading.tsx";
 import PromoCard from "./PromoCard.tsx";
 import react from "@assets/react.png";
+import aws from "@assets/aws.png";
+import django from "@assets/django.png";
+import docker from "@assets/docker.jpg";
+import flask from "@assets/flask.png";
+import springBoot from "@assets/springboot.png";
+import sql from "@assets/sql.jpg";
+import java from "@assets/java.png";
+import git from "@assets/git.png";
+import typescript from "@assets/typescript.webp";
+import css from "@assets/css.webp";
+import jQuery from "@assets/jquery.png";
+import multiThreading from "@assets/multithreading.png";
 
 const Projects = () => {
   const promoCardData = [
@@ -15,7 +27,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: django,
       title: "Backend with Django/DRF",
       techTags: ["Python", "Django", "DRF"],
       description:
@@ -25,7 +37,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: flask,
       title: "Fullstack with Flask",
       techTags: ["Python", "Flask", "Jinja2"],
       description:
@@ -35,7 +47,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: java,
       title: "Java Web Developer",
       techTags: ["Java", "JSP", "Struts 2"],
       description:
@@ -45,7 +57,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: springBoot,
       title: "Spring Boot Enthusiast",
       techTags: ["Java", "Spring Boot", "JDBC"],
       description:
@@ -55,7 +67,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: sql,
       title: "Database & SQL Skills",
       techTags: ["SQL", "MySQL", "JDBC"],
       description:
@@ -65,9 +77,9 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: docker,
       title: "Dockerized Development",
-      techTags: ["Docker", "Docker Compose", "Containerization"],
+      techTags: ["Docker", "Images", "Container"],
       description:
         "Containerized applications and isolated development environments using Docker.",
       moreInfo:
@@ -75,7 +87,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: aws,
       title: "AWS for Developers",
       techTags: ["AWS", "S3", "EC2"],
       description:
@@ -85,7 +97,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: typescript,
       title: "TypeScript Proficiency",
       techTags: ["TypeScript", "React", "Next.js"],
       description:
@@ -95,7 +107,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: git,
       title: "Version Control with Git",
       techTags: ["Git", "GitHub", "Branching"],
       description:
@@ -105,7 +117,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: css,
       title: "Frontend Styling",
       techTags: ["SCSS", "CSS Modules", "Tailwind"],
       description:
@@ -115,7 +127,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: jQuery,
       title: "jQuery Legacy Support",
       techTags: ["jQuery", "AJAX", "DOM Manipulation"],
       description:
@@ -125,7 +137,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: react,
+      imageSrc: multiThreading,
       title: "Multithreaded Programming",
       techTags: ["Java", "Threads", "Concurrency"],
       description:
