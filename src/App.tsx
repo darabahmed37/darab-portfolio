@@ -1,11 +1,11 @@
 import Home from "./Pages/Home.tsx";
 
 function App() {
-    return (
-        <>
-            <Home/>
-        </>
-    );
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;
