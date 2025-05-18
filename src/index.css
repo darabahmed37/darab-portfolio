@@ -63,3 +63,15 @@
     height: 91px;
     z-index: 2;
 }
+
+#project-rectangle {
+    position: absolute;
+    top: 1920px;
+    right: 0;
+}
+
+#rightCornerMesh {
+    position: absolute;
+    left: 0;
+    top: 1500px
+}

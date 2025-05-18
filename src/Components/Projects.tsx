@@ -13,6 +13,8 @@ import typescript from "@assets/typescript.webp";
 import css from "@assets/css.webp";
 import jQuery from "@assets/jquery.png";
 import multiThreading from "@assets/multithreading.png";
+import projectsRectangle from "@assets/projects-rectangle.svg";
+import rightCornerMesh from "@assets/right-corner-mesh.svg";
 
 const Projects = () => {
   const promoCardData = [
@@ -158,6 +160,18 @@ const Projects = () => {
           </div>
         ))}
       </div>
+      <img
+        id="project-rectangle"
+        src={projectsRectangle}
+        alt="Rectangle"
+        loading={"lazy"}
+      />
+      <img
+        src={rightCornerMesh}
+        alt="rightCornerMesh"
+        loading={"lazy"}
+        id={"rightCornerMesh"}
+      />
     </div>
   );
 };

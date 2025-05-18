@@ -20,7 +20,7 @@ const PromoCard = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-gray w-80">
+    <div className="border border-gray w-80 ">
       <div className=" max-w-xl aspect-video w-full">
         <img
           src={imageSrc}
@@ -48,7 +48,9 @@ const PromoCard = ({
             onClick={() => {
               setOpen(true);
             }}
-            className={"border border-primary text-white px-3 py-2 rounded-md"}
+            className={
+              "border border-primary text-white px-3 py-2 rounded-md cursor-pointer"
+            }
           >
             {buttonLabel}
           </button>

@@ -12,12 +12,12 @@ const Header = () => {
           <div
             className="images mt-1"
             style={{
-              transform: "translateX(5)",
+              transform: "translateX(5px)",
             }}
           >
             <img src={github} alt="githubLogo" />
-            <img src={figma} alt="githubLogo" />
-            <img src={football} alt="githubLogo" />
+            <img src={figma} alt="figma" />
+            <img src={football} alt="football" />
           </div>
         </div>
         <Navbar />

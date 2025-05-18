@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
       {isOpen && (
         <motion.div
           onClick={onClose}
-          className="fixed inset-0 z-50 flex items-center justify-center select-none bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center select-none bg-black/60 backdrop-blur-sm "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="max-w-lg w-full mx-4 p-6 rounded-xl shadow-2xl border border-primary  bg-gray text-gray"
+            className="max-w-lg w-full mx-4 p-6 rounded-xl shadow-2xl border border-primary  text-gray !bg-background/55"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
