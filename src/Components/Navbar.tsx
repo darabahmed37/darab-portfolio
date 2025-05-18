@@ -1,4 +1,5 @@
 import navLogo from "@assets/nav-logo.svg";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -11,10 +12,13 @@ const Navbar = () => {
         <ul className="flex space-x-6">
           {["home", "work", "about-me", "contact"].map((value, index) => (
             <li key={index}>
-              <a href="#">
-                <span className={"text-primary"}>#</span>{" "}
-                <span className="active:text-white text-gray">{value}</span>
-              </a>
+              <NavLink
+                to={`/${value}`}
+                className={({ isActive }) => (isActive ? "text-white" : "")}
+              >
+                <span className="text-primary">#</span>{" "}
+                <span className="text-gray">{value}</span>
+              </NavLink>
             </li>
           ))}
         </ul>

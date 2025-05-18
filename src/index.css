@@ -75,3 +75,15 @@
     left: 0;
     top: 1500px
 }
+
+@media (max-height: 1400px) {
+    #project-rectangle, #rightCornerMesh {
+        display: none;
+    }
+}
+
+#space-filler {
+    position: absolute;
+    bottom: -70px;
+    left: -173px;
+}

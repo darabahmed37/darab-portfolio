@@ -2,6 +2,8 @@ import Navbar from "./Navbar.tsx";
 import github from "@assets/github.svg";
 import figma from "@assets/figma.svg";
 import football from "@assets/football.svg";
+import projectsRectangle from "@assets/projects-rectangle.svg";
+import rightCornerMesh from "@assets/right-corner-mesh.svg";
 
 const Header = () => {
   return (
@@ -22,6 +24,18 @@ const Header = () => {
         </div>
         <Navbar />
       </header>
+      <img
+        id="project-rectangle"
+        src={projectsRectangle}
+        alt="Rectangle"
+        loading={"lazy"}
+      />
+      <img
+        src={rightCornerMesh}
+        alt="rightCornerMesh"
+        loading={"lazy"}
+        id={"rightCornerMesh"}
+      />
     </div>
   );
 };

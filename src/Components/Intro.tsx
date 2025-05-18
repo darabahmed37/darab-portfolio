@@ -2,6 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useEffect, useState } from "react";
 import coderImage from "@assets/coder.svg";
 import meshImage from "@assets/mesh.svg";
+import filler from "@assets/extra-space-filler.svg";
 
 const techTags = [
   "React",
@@ -42,7 +43,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="flex w-full max-w-7xl mx-auto px-6 py-10">
+    <div className="flex w-full max-w-7xl mx-auto px-6 py-10 relative">
       <div className="left_intro flex-1 space-y-4">
         <h2 className="text-2xl md:text-3xl font-bold">
           Darab is a Full Stack{" "}
@@ -69,9 +70,12 @@ const Intro = () => {
             {techTags[currentTagIndex]}
           </span>
         </h6>
-        <button className="mt-4 px-5 py-2 border border-primary text-white rounded cursor-pointer">
+        <a
+          href="mailto:darabahmed37@gmail.com?subject=Hi Darab I have a project for you lets discuss"
+          className="mt-4 inline-block px-6 py-2 border border-primary text-white bg-transparent  rounded shadow"
+        >
           Wanna contact me?
-        </button>
+        </a>
       </div>
 
       <div className="right_intro flex-1 flex items-center flex-col  overflow-hidden">
@@ -105,6 +109,7 @@ const Intro = () => {
           </p>
         </div>
       </div>
+      <img id="space-filler" src={filler} />
     </div>
   );
 };

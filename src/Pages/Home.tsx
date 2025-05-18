@@ -1,11 +1,10 @@
-import Header from "../Components/Header.tsx";
 import Intro from "../Components/Intro.tsx";
 import Projects from "../Components/Projects.tsx";
+import AboutSection from "../Components/AboutSection.tsx";
 
 const Home = () => {
   return (
-    <div className="bg-background min-h-screen" id="homeContainer">
-      <Header />
+    <div>
       <Intro />
       <div className="text-white max-w-2xl mx-auto py-2 px-3">
         <div className="quote border p-5 border-gray font-bold">
@@ -25,6 +24,7 @@ const Home = () => {
         }}
       >
         <Projects />
+        <AboutSection />
       </section>
     </div>
   );
