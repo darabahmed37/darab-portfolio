@@ -20,7 +20,7 @@ const Home = () => {
       <section
         className={" mx-auto"}
         style={{
-          width: "70em",
+          maxWidth: "70em",
         }}
       >
         <Projects />

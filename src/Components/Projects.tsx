@@ -151,7 +151,7 @@ const Projects = () => {
   return (
     <div>
       <Heading title={"skills"} />
-      <div className="flex flex-wrap gap-4 justify-between">
+      <div className="flex max-w-full flex-wrap gap-4 xl:justify-between sm:justify-center">
         {promoCardData.map((cardProps, index) => (
           <div key={index}>
             <PromoCard {...cardProps} />

@@ -89,6 +89,14 @@
     left: -173px;
 }
 
+
+@media (max-width: 1365px) {
+    #homeContainer:before, #space-filler {
+        display: none;
+    }
+
+}
+
 /* global.css or inside your component with <style jsx> */
 
 .react-datepicker {

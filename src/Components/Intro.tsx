@@ -45,7 +45,7 @@ const Intro = () => {
   return (
     <div className="flex w-full max-w-7xl mx-auto px-6 py-10 relative">
       <div className="left_intro flex-1 space-y-4">
-        <h2 className="text-2xl md:text-3xl font-bold">
+        <h2 className="text-2xl font-medium text-white">
           Darab is a Full Stack{" "}
           <span className="text-primary inline-block min-w-[220px] min-h-[1em]">
             <TypeAnimation
@@ -78,8 +78,8 @@ const Intro = () => {
         </a>
       </div>
 
-      <div className="right_intro flex-1 flex items-center flex-col  overflow-hidden">
-        <div className="w-full h-[80%] overflow-hidden relative">
+      <div className="right_intro flex-1 lg:flex items-center flex-col  hidden  overflow-hidden">
+        <div className="w-full h-[80%] overflow-hidden relative ">
           <img
             src={coderImage}
             alt="Coder"
