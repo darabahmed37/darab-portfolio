@@ -959,10 +959,10 @@ li.react-datepicker__time-list-item--selected {
 
 /* Main headline */
 .hero-headline {
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 800;
     color: #f1f5f9;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     margin: 0;
 }
@@ -972,8 +972,10 @@ li.react-datepicker__time-list-item--selected {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    min-height: 1.2em;
+    display: block;          /* own line, no inline siblings to conflict */
+    white-space: nowrap;     /* never wraps mid-type */
+    min-height: 1.25em;      /* holds space when cursor-only (empty sequence) */
+    overflow: hidden;        /* belt-and-suspenders on very narrow screens */
 }
 
 /* Sub text */

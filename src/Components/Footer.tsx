@@ -30,7 +30,9 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Darab Ahmed. All rights reserved.
         </p>
         <a
-          href="mailto:darabahmed37@gmail.com?subject=Hi Darab I have a project for you lets discuss"
+          href={`https://mail.google.com/mail/?view=cm&fs=1&to=darabahmed37@gmail.com&su=Engineering%20Opportunity%20%E2%80%94%20Darab%20Ahmed&body=Hi%20Darab%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out%20regarding%20a%20potential%20opportunity.%0A%0A%5BPlease%20describe%20the%20role%20%2F%20project%20here%5D%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ARegards%2C%0A%5BYour%20Name%5D`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-primary underline hover:text-primary/80"
         >
           darabahmed37@gmail.com

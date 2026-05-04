@@ -6,7 +6,7 @@ import filler from "@assets/extra-space-filler.svg";
 
 /* Scrolling marquee — two copies for seamless loop */
 const marqueeItems = [
-  "Java 21", "Spring Boot", "ExecutorService", "PostgreSQL",
+  "Java", "Spring Boot", "ExecutorService", "PostgreSQL",
   "Django REST", "AWS Lambda", "Docker", "Redis",
   "React", "TypeScript", "Fintech", "CI/CD",
   "Microservices", "EXPLAIN Plans", "Vue.js", "Linux",
@@ -31,7 +31,6 @@ const Intro = () => {
           {/* Main headline */}
           <h1 className="hero-headline">
             Backend-Focused
-            <br />
             <span className="hero-headline-grad">
               <TypeAnimation
                 sequence={[
@@ -62,7 +61,7 @@ const Intro = () => {
           <div className="hero-badges">
             {[
               { v: "3+", l: "Years" },
-              { v: "Java 21", l: "Backend" },
+              { v: "Java", l: "Backend" },
               { v: "Fintech", l: "Domain" },
               { v: "AWS", l: "Cloud" },
             ].map((b) => (
@@ -80,7 +79,9 @@ const Intro = () => {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
             <a
-              href="mailto:darabahmed37@gmail.com?subject=Engineering Role Opportunity — Darab Ahmed"
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=darabahmed37@gmail.com&su=Engineering%20Opportunity%20%E2%80%94%20Darab%20Ahmed&body=Hi%20Darab%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out%20about%20a%20potential%20opportunity.%0A%0A%5BPlease%20describe%20the%20role%20%2F%20project%5D%0A%0ALooking%20forward%20to%20connecting.%0A%0ARegards%2C%0A%5BYour%20Name%5D`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hero-cta-secondary"
               id="hero-contact-cta"
             >

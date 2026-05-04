@@ -51,11 +51,11 @@ const Projects = () => {
     {
       icon: <FaJava />,
       title: "Enterprise Java Developer",
-      techTags: ["Java", "JSP", "Struts", "Java 21"],
+      techTags: ["Java", "JSP", "Struts", "Spring Boot"],
       description:
-        "Maintained legacy systems and migrated enterprise web applications from Java 8 to Java 21.",
+        "Maintained and extended enterprise Java applications, delivered full modules from scratch, and led production JDK upgrades.",
       moreInfo:
-        "Hands-on experience in maintaining and upgrading Java web applications using JSP, Servlets, and Struts. Worked on migrating enterprise applications from Java 8 to Java 21. Developed complete enterprise modules from scratch, including frontend implementation, backend business logic, and database design.",
+        "Hands-on experience maintaining complex Java web applications using JSP, Servlets, and Struts inside a live fintech codebase. Led a production JDK version upgrade, resolving API deprecations and module-system incompatibilities. Delivered complete enterprise modules end-to-end: domain modelling, backend business logic, database schema, and frontend integration.",
       buttonLabel: "More <~>",
     },
     {

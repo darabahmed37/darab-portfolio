@@ -23,7 +23,7 @@ import {
 const stats = [
   { value: "3+", label: "Years Production Experience" },
   { value: "2", label: "Companies · Fintech & Consulting" },
-  { value: "Java 21", label: "Primary Backend Stack" },
+  { value: "Java", label: "Primary Backend Stack" },
   { value: "AWS", label: "Cloud Platform" },
 ];
 
@@ -160,9 +160,9 @@ const categories: Category[] = [
           "Engineered RESTful APIs across Spring Boot, Django REST Framework, and Flask — applying proper resource modeling, versioning strategies, pagination, and error contracts consumed by frontend and third-party clients.",
       },
       {
-        title: "Platform Migration — Java 8 → Java 21",
+        title: "Platform Migration — JDK Upgrade",
         description:
-          "Led the technical migration of a production Java application to Java 21, navigating API deprecations, module system changes, and dependency upgrades while maintaining system stability throughout.",
+          "Led the technical migration of a production Java application to a modern JDK, navigating API deprecations, module system changes, and dependency upgrades while maintaining system stability throughout.",
       },
       {
         title: "Legacy System Navigation",
