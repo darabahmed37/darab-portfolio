@@ -11,10 +11,117 @@ import {
   FiDollarSign,
   FiTool,
   FiChevronDown,
+  FiGitBranch,
+  FiPackage,
+  FiActivity,
 } from "react-icons/fi";
 
 /* ─────────────────────────────────────────────
-   DATA
+   STATS
+───────────────────────────────────────────── */
+
+const stats = [
+  { value: "3+", label: "Years Production Experience" },
+  { value: "2", label: "Companies · Fintech & Consulting" },
+  { value: "Java 21", label: "Primary Backend Stack" },
+  { value: "AWS", label: "Cloud Platform" },
+];
+
+/* ─────────────────────────────────────────────
+   TECH STACK GRID
+───────────────────────────────────────────── */
+
+type TechGroup = {
+  label: string;
+  accent: string;
+  tags: string[];
+};
+
+const techGroups: TechGroup[] = [
+  {
+    label: "Languages",
+    accent: "#c778dd",
+    tags: ["Java", "Python", "TypeScript", "JavaScript", "SQL"],
+  },
+  {
+    label: "Backend",
+    accent: "#f59e0b",
+    tags: [
+      "Spring Boot",
+      "Django",
+      "Django REST Framework",
+      "Flask",
+      "Struts",
+      "Servlets",
+      "JSP",
+    ],
+  },
+  {
+    label: "Frontend",
+    accent: "#38bdf8",
+    tags: ["React", "Vue.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
+  },
+  {
+    label: "Databases",
+    accent: "#34d399",
+    tags: ["PostgreSQL", "MySQL", "Redis", "Hibernate ORM", "Django ORM"],
+  },
+  {
+    label: "Cloud & DevOps",
+    accent: "#60a5fa",
+    tags: [
+      "AWS EC2",
+      "AWS S3",
+      "AWS Lambda",
+      "Elastic Beanstalk",
+      "Docker",
+      "GitHub Actions",
+      "Apache Tomcat",
+      "Linux",
+    ],
+  },
+  {
+    label: "Patterns & Practices",
+    accent: "#fb923c",
+    tags: [
+      "REST APIs",
+      "Microservices",
+      "Multi-threading",
+      "CI/CD",
+      "Agile / Scrum",
+      "Code Review",
+      "SOLID",
+    ],
+  },
+];
+
+/* ─────────────────────────────────────────────
+   ENGINEERING PRINCIPLES
+───────────────────────────────────────────── */
+
+const principles = [
+  {
+    icon: <FiActivity />,
+    title: "Correctness under load",
+    body: "A system that works at 1 req/s but breaks at 1,000 isn't production-ready. I design for concurrency, failure, and edge cases from the start — not as an afterthought.",
+    accent: "#f59e0b",
+  },
+  {
+    icon: <FiGitBranch />,
+    title: "Ownership, not handoff",
+    body: "I take full ownership of features end-to-end: architecture, implementation, code review, and production debugging. I don't build to spec and move on.",
+    accent: "#c778dd",
+  },
+  {
+    icon: <FiPackage />,
+    title: "Readable before clever",
+    body: "Complex code that only the author understands is a liability. I write for the next engineer — narrow functions, intentional naming, and inline rationale for non-obvious decisions.",
+    accent: "#34d399",
+  },
+];
+
+/* ─────────────────────────────────────────────
+   EXPERTISE CATEGORIES
 ───────────────────────────────────────────── */
 
 type SkillItem = {
@@ -40,6 +147,7 @@ const categories: Category[] = [
     label: "Backend Engineering",
     tagline: "Java · Python · Django · Spring Boot · REST",
     accent: "#c778dd",
+    diagram: <BackendDiagram />,
     items: [
       {
         title: "Enterprise Java — Full Ownership",
@@ -150,6 +258,7 @@ const categories: Category[] = [
     label: "Fintech Engineering",
     tagline: "Transaction Systems · Consistency · Reliability · Audit",
     accent: "#a78bfa",
+    diagram: <FintechDiagram />,
     items: [
       {
         title: "Transaction System Design",
@@ -174,7 +283,7 @@ const categories: Category[] = [
       {
         title: "Auditability & Compliance Awareness",
         description:
-          "Structured payment modules with full audit trails — every state change is logged with actor, timestamp, and reason. Secure access controls and data integrity constraints are treated as baseline architecture, not afterthoughts.",
+          "Structured payment modules with full audit trails — every state change is logged with actor, timestamp, and reason. Access controls and data integrity constraints are treated as baseline architecture, not afterthoughts.",
       },
     ],
   },
@@ -186,6 +295,7 @@ const categories: Category[] = [
     label: "Cloud & DevOps",
     tagline: "AWS · Docker · CI/CD · Linux",
     accent: "#60a5fa",
+    diagram: <CloudDiagram />,
     items: [
       {
         title: "AWS Production Infrastructure",
@@ -248,6 +358,7 @@ const categories: Category[] = [
     label: "Production Engineering",
     tagline: "Debugging · Root Cause Analysis · Reliability · Standards",
     accent: "#fb923c",
+    diagram: <ProductionDiagram />,
     items: [
       {
         title: "Production Incident Debugging",
@@ -312,6 +423,115 @@ const categories: Category[] = [
 /* ─────────────────────────────────────────────
    MINI DIAGRAMS
 ───────────────────────────────────────────── */
+
+function BackendDiagram() {
+  const steps = [
+    { label: "Client", sub: "HTTP Request", color: "#c778dd" },
+    { label: "Controller", sub: "Route / Validate", color: "#f59e0b" },
+    { label: "Service", sub: "Business Logic", color: "#a78bfa" },
+    { label: "Repository", sub: "DB / Cache", color: "#34d399" },
+    { label: "Response", sub: "JSON / DTO", color: "#60a5fa" },
+  ];
+  return (
+    <div className="generic-diagram" style={{ "--diag-accent": "#c778dd" } as React.CSSProperties}>
+      <div className="gd-title">REST API Request Lifecycle</div>
+      <div className="gd-flow">
+        {steps.map((s, i) => (
+          <div key={s.label} className="gd-flow-row">
+            <div className="gd-step" style={{ borderColor: s.color, color: s.color }}>
+              <span className="gd-step-label">{s.label}</span>
+              <span className="gd-step-sub">{s.sub}</span>
+            </div>
+            {i < steps.length - 1 && <div className="gd-flow-arrow">↓</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FintechDiagram() {
+  const states = [
+    { id: "INIT", label: "INITIATED", color: "#6b7280" },
+    { id: "PROC", label: "PROCESSING", color: "#f59e0b" },
+    { id: "OK", label: "COMMITTED", color: "#34d399" },
+    { id: "FAIL", label: "ROLLED BACK", color: "#f87171" },
+  ];
+  return (
+    <div className="generic-diagram" style={{ "--diag-accent": "#a78bfa" } as React.CSSProperties}>
+      <div className="gd-title">Payment Transaction — State Machine</div>
+      <div className="ft-states">
+        {states.map((s) => (
+          <div key={s.id} className="ft-state" style={{ borderColor: s.color, color: s.color }}>
+            <span className="ft-state-id">{s.id}</span>
+            <span className="ft-state-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+      <div className="ft-rules">
+        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#f59e0b" }}>INIT → PROCESSING</span><span>Begin atomic transaction</span></div>
+        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#34d399" }}>PROCESSING → COMMITTED</span><span>All checks pass, commit</span></div>
+        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#f87171" }}>PROCESSING → ROLLED BACK</span><span>Any failure → full rollback</span></div>
+        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#60a5fa" }}>Idempotency key</span><span>Prevents duplicate on retry</span></div>
+      </div>
+    </div>
+  );
+}
+
+function CloudDiagram() {
+  const pipeline = [
+    { stage: "Push", detail: "git push → trigger", color: "#abb2bf" },
+    { stage: "Build", detail: "Compile + lint", color: "#f59e0b" },
+    { stage: "Test", detail: "Unit + integration", color: "#c778dd" },
+    { stage: "Image", detail: "Docker build", color: "#60a5fa" },
+    { stage: "Deploy", detail: "AWS / Beanstalk", color: "#34d399" },
+  ];
+  return (
+    <div className="generic-diagram" style={{ "--diag-accent": "#60a5fa" } as React.CSSProperties}>
+      <div className="gd-title">CI/CD Pipeline — GitHub Actions</div>
+      <div className="cloud-pipeline">
+        {pipeline.map((p, i) => (
+          <div key={p.stage} className="cp-row">
+            <div className="cp-stage" style={{ borderColor: p.color, background: `color-mix(in srgb, ${p.color} 8%, transparent)` }}>
+              <span className="cp-stage-name" style={{ color: p.color }}>{p.stage}</span>
+              <span className="cp-detail">{p.detail}</span>
+            </div>
+            {i < pipeline.length - 1 && <div className="cp-arrow">→</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProductionDiagram() {
+  const steps = [
+    { num: "1", label: "Alert fires", detail: "Error rate spike / timeout", color: "#f87171" },
+    { num: "2", label: "Read logs", detail: "Trace IDs → stack traces", color: "#f59e0b" },
+    { num: "3", label: "Isolate scope", detail: "Narrow to service / query", color: "#c778dd" },
+    { num: "4", label: "Root cause", detail: "Race cond / bad deploy / query", color: "#a78bfa" },
+    { num: "5", label: "Fix + verify", detail: "Patch + regression test", color: "#34d399" },
+  ];
+  return (
+    <div className="generic-diagram" style={{ "--diag-accent": "#fb923c" } as React.CSSProperties}>
+      <div className="gd-title">Production Debugging — RCA Loop</div>
+      <div className="prod-steps">
+        {steps.map((s, i) => (
+          <div key={s.num} className="prod-row">
+            <div className="prod-step">
+              <span className="prod-num" style={{ background: s.color }}>{s.num}</span>
+              <div>
+                <span className="prod-label">{s.label}</span>
+                <span className="prod-detail">{s.detail}</span>
+              </div>
+            </div>
+            {i < steps.length - 1 && <div className="prod-arrow">↓</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function ConcurrencyDiagram() {
   return (
@@ -490,6 +710,55 @@ const Skills = () => {
         managers who want to understand depth, not just stack coverage.
       </p>
 
+      {/* ── Stats Bar ── */}
+      <div className="sk-stats-bar">
+        {stats.map((s) => (
+          <div key={s.label} className="sk-stat">
+            <span className="sk-stat-value">{s.value}</span>
+            <span className="sk-stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Engineering Principles ── */}
+      <div className="sk-section-title">Engineering Principles</div>
+      <div className="sk-principles">
+        {principles.map((p) => (
+          <div
+            key={p.title}
+            className="sk-principle-card"
+            style={{ "--card-accent": p.accent } as React.CSSProperties}
+          >
+            <span className="sk-principle-icon">{p.icon}</span>
+            <h4 className="sk-principle-title">{p.title}</h4>
+            <p className="sk-principle-body">{p.body}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Tech Stack Grid ── */}
+      <div className="sk-section-title">Technology Stack</div>
+      <div className="sk-tech-grid">
+        {techGroups.map((group) => (
+          <div
+            key={group.label}
+            className="sk-tech-group"
+            style={{ "--group-accent": group.accent } as React.CSSProperties}
+          >
+            <div className="sk-tech-group-label">{group.label}</div>
+            <div className="sk-tags">
+              {group.tags.map((tag) => (
+                <span key={tag} className="sk-tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Deep-Dive Accordions ── */}
+      <div className="sk-section-title">Capability Deep-Dive</div>
       <div className="expertise-grid">
         {categories.map((cat) => (
           <Panel
