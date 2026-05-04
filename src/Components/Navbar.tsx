@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import navLogo from "@assets/nav-logo.svg";
 import { NavLink } from "react-router";
 
-const navItems = ["home", "about-me", "contact"] as const;
+const navItems = ["home", "skills", "about-me", "contact"] as const;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -53,10 +53,10 @@ const Intro = () => {
     <div className="flex w-full max-w-7xl mx-auto px-6 py-10 relative">
       <div className="left_intro flex-1 space-y-4">
         <h2 className="text-2xl font-medium text-white">
-          Darab is a Full Stack{" "}
+          Darab is a Backend-Focused{" "}
           <span className="text-primary inline-block min-w-[220px] min-h-[1em]">
             <TypeAnimation
-              sequence={["Software Engineer", 1500, "", 500]}
+              sequence={["Software Engineer", 1500, "Systems Architect", 1500, "Fintech Engineer", 1500, "", 500]}
               wrapper="span"
               speed={50}
               cursor={true}
@@ -66,7 +66,8 @@ const Intro = () => {
         </h2>
 
         <h6 className="text-base text-gray">
-          He crafts complete web systems from scratch using modern technologies.
+          3+ years building production fintech systems, high-throughput backends,
+          and concurrent data pipelines.
         </h6>
 
         <h6 className="text-base text-gray-600">
@@ -78,10 +79,10 @@ const Intro = () => {
           </span>
         </h6>
         <a
-          href="mailto:darabahmed37@gmail.com?subject=Hi Darab I have a project for you lets discuss"
+          href="mailto:darabahmed37@gmail.com?subject=Engineering Role Opportunity — Darab Ahmed"
           className="mt-4 inline-block px-6 py-2 border border-primary text-white bg-transparent  rounded shadow"
         >
-          Wanna contact me?
+          Get in touch
         </a>
       </div>
 

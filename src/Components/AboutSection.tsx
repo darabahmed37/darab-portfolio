@@ -9,13 +9,15 @@ const AboutSection = () => {
       <section className="bg-white py-2  ">
         <div className="max-w-4xl">
           <p className="text-lg text-gray leading-relaxed mb-6">
-            Hello! My name is{" "}
-            <span className="font-semibold text-primary">Darab Ahmed</span>. I’m
-            a passionate, performance-driven{" "}
-            <span className="font-semibold text-primary">
-              Software Engineer
-            </span>{" "}
-            based in Lahore, Pakistan. With over 1.5 years of professional experience across companies like i2cinc and Devsinc, I specialize in building robust, scalable backend systems using Java and Python, alongside modern frontend frameworks like React and Vue.js. I approach every project with a builder’s mindset and a strong commitment to long-term maintainability.
+            I'm{" "}
+            <span className="font-semibold text-primary">Darab Ahmed</span> — a
+            backend-focused{" "}
+            <span className="font-semibold text-primary">Software Engineer</span>{" "}
+            with 3+ years of production experience, primarily in fintech. I
+            design and build high-throughput backend systems in Java and Python,
+            work on transaction processing and reliability infrastructure, and
+            operate inside complex, long-lived codebases. I take end-to-end
+            ownership: architecture, implementation, and production support.
           </p>
 
           <Link

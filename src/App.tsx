@@ -5,6 +5,7 @@ import Header from "./Components/Header.tsx";
 import ScrollToTop from "./Components/scrollToTop.ts";
 import Footer from "./Components/Footer.tsx";
 import ContactMe from "./Pages/ContactMe.tsx";
+import Skills from "./Pages/Skills.tsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/skills" element={<Skills />} />
           <Route path="/about-me" element={<AboutMe />} />
           <Route path="/contact" element={<ContactMe />} />
 
