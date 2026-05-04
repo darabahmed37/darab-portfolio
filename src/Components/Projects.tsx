@@ -1,43 +1,45 @@
 import Heading from "./Heading.tsx";
 import PromoCard from "./PromoCard.tsx";
-import react from "@assets/react.png";
-import aws from "@assets/aws.png";
-import django from "@assets/django.png";
-import docker from "@assets/docker.jpg";
-import flask from "@assets/flask.png";
-import springBoot from "@assets/springboot.png";
-import sql from "@assets/sql.jpg";
-import java from "@assets/java.png";
-import git from "@assets/git.png";
-import typescript from "@assets/typescript.webp";
-import css from "@assets/css.webp";
-import jQuery from "@assets/jquery.png";
-import multiThreading from "@assets/multithreading.png";
+import { motion } from "framer-motion";
+import { 
+  FaReact, 
+  FaPython, 
+  FaJava, 
+  FaDatabase, 
+  FaDocker, 
+  FaAws, 
+  FaCode, 
+  FaGitAlt, 
+  FaCss3Alt, 
+  FaProjectDiagram, 
+  FaMicrochip,
+  FaLeaf
+} from "react-icons/fa";
 
 const Projects = () => {
   const promoCardData = [
     {
-      imageSrc: react,
-      title: "React Developer",
-      techTags: ["React", "Next.js", "Tailwind CSS"],
+      icon: <FaReact />,
+      title: "Frontend Developer (React & Vue)",
+      techTags: ["React", "Vue.js", "Next.js"],
       description:
-        "Built dynamic UIs and modern SPAs using React and Next.js for high-performance web apps.",
+        "Built dynamic UIs and modern SPAs using React, Vue.js, and Next.js for high-performance web apps.",
       moreInfo:
-        "Experienced in building scalable and performant frontend applications using React and Next.js. Skilled at creating reusable components and implementing responsive designs with Tailwind CSS. Developed my personal portfolio and multiple projects showcasing clean code and UI/UX best practices.",
+        "Experienced in building scalable and performant frontend applications using React and Vue.js. Skilled at creating reusable components and implementing responsive designs. Developed my personal portfolio and multiple enterprise projects showcasing clean code and UI/UX best practices.",
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: django,
+      icon: <FaPython />,
       title: "Backend with Django/DRF",
       techTags: ["Python", "Django", "DRF"],
       description:
         "Developed RESTful APIs and backend systems using Django and Django Rest Framework.",
       moreInfo:
-        "Proficient in designing and implementing REST APIs with Django and DRF, ensuring security and scalability. Experienced in handling database models, serializers, and views to deliver efficient backend solutions. Contributed to backend modules in production-level projects.",
+        "Proficient in designing and implementing REST APIs with Django and DRF, ensuring security and scalability. Experienced in handling database models, serializers, and views to deliver efficient backend solutions. Migrated legacy .NET applications to Django, improving maintainability and performance.",
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: flask,
+      icon: <FaPython />,
       title: "Fullstack with Flask",
       techTags: ["Python", "Flask", "Jinja2"],
       description:
@@ -47,17 +49,17 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: java,
-      title: "Java Web Developer",
-      techTags: ["Java", "JSP", "Struts 2"],
+      icon: <FaJava />,
+      title: "Enterprise Java Developer",
+      techTags: ["Java", "JSP", "Struts", "Java 21"],
       description:
-        "Maintained and developed web applications using Java with Apache Struts and JSP.",
+        "Maintained legacy systems and migrated enterprise web applications from Java 8 to Java 21.",
       moreInfo:
-        "Hands-on experience in maintaining legacy Java web applications using JSP and Struts 2. Familiar with MVC architecture and server-side rendering. Worked on bug fixes, feature enhancements, and performance improvements in enterprise projects.",
+        "Hands-on experience in maintaining and upgrading Java web applications using JSP, Servlets, and Struts. Worked on migrating enterprise applications from Java 8 to Java 21. Developed complete enterprise modules from scratch, including frontend implementation, backend business logic, and database design.",
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: springBoot,
+      icon: <FaLeaf />,
       title: "Spring Boot Enthusiast",
       techTags: ["Java", "Spring Boot", "JDBC"],
       description:
@@ -67,7 +69,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: sql,
+      icon: <FaDatabase />,
       title: "Database & SQL Skills",
       techTags: ["SQL", "MySQL", "JDBC"],
       description:
@@ -77,7 +79,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: docker,
+      icon: <FaDocker />,
       title: "Dockerized Development",
       techTags: ["Docker", "Images", "Container"],
       description:
@@ -87,7 +89,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: aws,
+      icon: <FaAws />,
       title: "AWS for Developers",
       techTags: ["AWS", "S3", "EC2"],
       description:
@@ -97,7 +99,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: typescript,
+      icon: <FaCode />,
       title: "TypeScript Proficiency",
       techTags: ["TypeScript", "React", "Next.js"],
       description:
@@ -107,7 +109,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: git,
+      icon: <FaGitAlt />,
       title: "Version Control with Git",
       techTags: ["Git", "GitHub", "Branching"],
       description:
@@ -117,7 +119,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: css,
+      icon: <FaCss3Alt />,
       title: "Frontend Styling",
       techTags: ["SCSS", "CSS Modules", "Tailwind"],
       description:
@@ -127,7 +129,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: jQuery,
+      icon: <FaProjectDiagram />,
       title: "jQuery Legacy Support",
       techTags: ["jQuery", "AJAX", "DOM Manipulation"],
       description:
@@ -137,7 +139,7 @@ const Projects = () => {
       buttonLabel: "More <~>",
     },
     {
-      imageSrc: multiThreading,
+      icon: <FaMicrochip />,
       title: "Multithreaded Programming",
       techTags: ["Java", "Threads", "Concurrency"],
       description:
@@ -148,16 +150,37 @@ const Projects = () => {
     },
   ];
 
+  const containerVariants: import("framer-motion").Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: import("framer-motion").Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
+  };
+
   return (
     <div>
       <Heading title={"skills"} />
-      <div className="flex max-w-full flex-wrap gap-4 xl:justify-between sm:justify-center">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-full pb-10"
+      >
         {promoCardData.map((cardProps, index) => (
-          <div key={index}>
+          <motion.div key={index} variants={itemVariants} className="w-full flex justify-center">
             <PromoCard {...cardProps} />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

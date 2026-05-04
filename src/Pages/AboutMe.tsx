@@ -10,57 +10,52 @@ const AboutMe = () => {
             <p className="text-lg text-gray leading-relaxed mb-6">
               Hello! My name is{" "}
               <span className="font-semibold text-primary ">Darab Ahmed</span>.
-              I’m a passionate, performance-driven
+              I’m a passionate, performance-driven{" "}
               <span className="font-semibold text-primary ">
-                Software Developer
+                Software Engineer
               </span>{" "}
               based in Lahore, Pakistan. I hold a Bachelor’s degree in Computer
               Science, and I specialize in building robust, scalable, and clean
-              backend systems using Java along with modern frontend frameworks
-              like React and Next.js. I approach every project with a builder’s
+              backend systems using Java and Python, along with modern frontend frameworks
+              like React, Vue.js, and Next.js. I specialize in developing scalable business solutions and approach every project with a builder’s
               mindset and a strong commitment to long-term maintainability.
             </p>
 
             <p className="text-lg text-gray leading-relaxed mb-6">
               I describe myself as a{" "}
               <span className="font-semibold text-primary ">
-                versatile full-stack developer
+                versatile full-stack engineer
               </span>{" "}
-              who is equally comfortable diving into low-level backend logic or
-              crafting intuitive user interfaces. I’ve worked on legacy
-              enterprise systems using technologies like Struts1/2 and JSP, and
-              I’m currently sharpening my expertise in{" "}
-              <span className="italic text-primary ">
-                Spring, JDBC, and modern Java practices
-              </span>{" "}
-              to stay in line with evolving industry trends. My toolbox
-              includes:
+              who is equally comfortable diving into complex backend logic or
+              crafting intuitive user interfaces. I have professional experience 
+              building enterprise applications, migrating legacy systems, and 
+              developing RESTful APIs. My toolbox includes:
             </p>
 
             <ul className="list-disc list-inside text-gray mb-6 space-y-1">
               <li>
-                <span className="font-medium">Languages:</span> Java, Python,
-                JavaScript, TypeScript
+                <span className="font-medium text-white">Languages:</span> Java, Python,
+                JavaScript, TypeScript, SQL
               </li>
               <li>
-                <span className="font-medium">Frontend:</span> React, Next.js,
+                <span className="font-medium text-white">Frontend:</span> React, Vue.js, Next.js,
                 HTML5, CSS3, Tailwind
               </li>
               <li>
-                <span className="font-medium">Backend:</span> Spring Boot
-                (learning), Struts1/2, JDBC, REST APIs
+                <span className="font-medium text-white">Backend:</span> Django, Flask, Spring Boot,
+                Struts, Servlets, JSP, REST APIs
               </li>
               <li>
-                <span className="font-medium">Database:</span> SQL (PostgreSQL,
-                MySQL), query optimization
+                <span className="font-medium text-white">Database:</span> PostgreSQL,
+                MySQL, query optimization, indexing
               </li>
               <li>
-                <span className="font-medium">Tools & Platforms:</span> Docker,
-                Git, GitHub, AWS (basic), Jira
+                <span className="font-medium text-white">Tools & Platforms:</span> Docker,
+                Git, GitHub, AWS, Apache Tomcat, Jira
               </li>
               <li>
-                <span className="font-medium">Practices:</span> Agile, CI/CD,
-                multithreading, clean code
+                <span className="font-medium text-white">Practices:</span> Agile, CI/CD,
+                secure engineering, clean code
               </li>
             </ul>
 
@@ -72,6 +67,52 @@ const AboutMe = () => {
               readable and testable code. I also believe in writing
               documentation, mentoring peers, and contributing to team growth.
             </p>
+
+            <h3 className="text-2xl font-semibold text-gray-400 mb-4">
+              Work Experience
+            </h3>
+            
+            <div className="mb-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                <h4 className="text-xl font-medium text-white">Software Engineer</h4>
+                <span className="text-primary font-medium text-sm sm:text-base bg-primary/10 px-3 py-1 rounded">10/2024 - Present</span>
+              </div>
+              <p className="text-lg text-gray font-semibold mb-2">i2cinc - Lahore, Pakistan</p>
+              <ul className="list-disc list-inside text-gray space-y-2 mb-4">
+                <li>Developed enterprise application modules from scratch, including frontend implementation, backend business logic, and database design.</li>
+                <li>Enhanced payment system functionality by designing scalable features and improving reliability.</li>
+                <li>Contributed to the migration of applications from Java 8 to Java 21, resolving compatibility issues and supporting validation.</li>
+                <li>Applied secure software engineering practices, mitigating XSS and CSRF risks aligned with enterprise security standards.</li>
+                <li>Built maintainable user interfaces using JSP, HTML, CSS, and JavaScript.</li>
+              </ul>
+            </div>
+
+            <div className="mb-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                <h4 className="text-xl font-medium text-white">Software Engineer</h4>
+                <span className="text-primary font-medium text-sm sm:text-base bg-primary/10 px-3 py-1 rounded">03/2023 - 06/2024</span>
+              </div>
+              <p className="text-lg text-gray font-semibold mb-2">Devsinc - Lahore, Pakistan</p>
+              <ul className="list-disc list-inside text-gray space-y-2 mb-4">
+                <li>Designed and maintained web applications using Django, Django Rest Framework, Flask, React, and Vue.js.</li>
+                <li>Migrated legacy applications between technology stacks (e.g., .NET to Django), improving performance and scalability.</li>
+                <li>Deployed and managed cloud-based applications on AWS (EC2, S3, Lambda, Elastic Beanstalk).</li>
+                <li>Built CI/CD pipelines and containerized applications using Docker to streamline deployments.</li>
+                <li>Developed secure authentication and authorization mechanisms to ensure data protection.</li>
+              </ul>
+            </div>
+
+            <h3 className="text-2xl font-semibold text-gray-400 mb-4">
+              Education
+            </h3>
+            
+            <div className="mb-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                <h4 className="text-xl font-medium text-white">Bachelor of Science in Computer Science</h4>
+                <span className="text-primary font-medium text-sm sm:text-base bg-primary/10 px-3 py-1 rounded">10/2019 - 08/2023</span>
+              </div>
+              <p className="text-lg text-gray mb-2">Government College University - Lahore, Pakistan</p>
+            </div>
 
             <h3 className="text-2xl font-semibold text-gray-400 mb-4">
               Why You Should Hire Me

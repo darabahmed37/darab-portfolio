@@ -13,14 +13,9 @@ const AboutSection = () => {
             <span className="font-semibold text-primary">Darab Ahmed</span>. I’m
             a passionate, performance-driven{" "}
             <span className="font-semibold text-primary">
-              Software Developer
+              Software Engineer
             </span>{" "}
-            based in Lahore, Pakistan. I hold a Bachelor’s degree in Computer
-            Science, and I specialize in building robust, scalable, and clean
-            backend systems using Python,Java along with modern frontend
-            frameworks like React and Next.js. I approach every project with a
-            builder’s mindset and a strong commitment to long-term
-            maintainability.
+            based in Lahore, Pakistan. With over 1.5 years of professional experience across companies like i2cinc and Devsinc, I specialize in building robust, scalable backend systems using Java and Python, alongside modern frontend frameworks like React and Vue.js. I approach every project with a builder’s mindset and a strong commitment to long-term maintainability.
           </p>
 
           <Link

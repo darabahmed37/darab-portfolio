@@ -6,11 +6,17 @@ import filler from "@assets/extra-space-filler.svg";
 
 const techTags = [
   "React",
+  "Vue.js",
   "Next.js",
   "jQuery",
   "Spring Boot",
   "Django",
+  "Django Rest Framework",
+  "Flask",
   "Java",
+  "JSP",
+  "Servlets",
+  "Struts",
   "Docker",
   "AWS",
   "SQL",
@@ -25,6 +31,7 @@ const techTags = [
   "CI/CD",
   "Redis",
   "Linux",
+  "Apache Tomcat",
 ];
 
 const Intro = () => {
