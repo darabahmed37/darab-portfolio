@@ -2,6 +2,7 @@ import navLogo from "@assets/nav-logo.svg";
 import figma from "@assets/figma.svg";
 import football from "@assets/football.svg";
 import github from "@assets/github.svg";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -20,7 +21,16 @@ const Footer = () => {
         <div className="flex items-center gap-4">
           <img src={figma} alt="Figma" className="w-6 h-6" />
           <img src={football} alt="Football" className="w-6 h-6" />
-          <img src={github} alt="Projects" className="w-6 h-6" />
+          <img src={github} alt="GitHub" className="w-6 h-6" />
+          <a
+            href="https://www.linkedin.com/in/darab-ahmed/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            className="text-[#abb2bf] hover:text-[#0a66c2] transition-colors duration-200"
+          >
+            <FaLinkedin size={24} />
+          </a>
         </div>
       </div>
 
