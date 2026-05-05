@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="bg-background min-h-screen" id="homeContainer">
       <Header />
-      <div className={"w-full max-w-[90rem] mx-auto px-4 sm:px-6 md:px-10 lg:px-16"}>
+      <div className={"w-full max-w-360 mx-auto px-4 sm:px-6 md:px-10 lg:px-16"}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

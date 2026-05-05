@@ -27,7 +27,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="text-[#abb2bf] hover:text-[#0a66c2] transition-colors duration-200"
+            className="text-gray hover:text-[#0a66c2] transition-colors duration-200"
           >
             <FaLinkedin size={24} />
           </a>

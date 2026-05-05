@@ -8,8 +8,8 @@ const Header = () => {
   return (
     <div>
       <header className={"flex items-start max-h-24"}>
-        <div className="hidden lg:block flex-shrink-0">
-          <div className="w-px h-[191px] !bg-gray translate-x-5"></div>
+        <div className="hidden lg:block shrink-0">
+          <div className="w-px h-[191px] bg-gray! translate-x-5"></div>
           <div
             className="images mt-1"
             style={{
