@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router";
 import coderImage from "@assets/coder.svg";
 import meshImage from "@assets/mesh.svg";
-import filler from "@assets/extra-space-filler.svg";
+
 
 /* Scrolling marquee — two copies for seamless loop */
 const marqueeItems = [
@@ -118,7 +118,7 @@ const Intro = () => {
         </div>
       </div>
 
-      <img id="space-filler" src={filler} alt="" aria-hidden="true" />
+
     </div>
   );
 };

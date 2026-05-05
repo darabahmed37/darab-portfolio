@@ -51,52 +51,7 @@
     position: relative;
 }
 
-#homeContainer:before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 500px;
-    background-image: url("/src/assets/square.svg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 82px;
-    height: 91px;
-    z-index: 2;
-}
 
-#project-rectangle {
-    position: absolute;
-    top: 1920px;
-    right: 0;
-}
-
-#rightCornerMesh {
-    position: absolute;
-    left: 0;
-    top: 1500px;
-}
-
-@media (max-height: 1400px) {
-    #project-rectangle,
-    #rightCornerMesh {
-        display: none;
-    }
-}
-
-#space-filler {
-    position: absolute;
-    bottom: -70px;
-    left: -173px;
-}
-
-
-@media (max-width: 1365px) {
-    #homeContainer:before, #space-filler {
-        display: none;
-    }
-
-}
 
 /* global.css or inside your component with <style jsx> */
 
