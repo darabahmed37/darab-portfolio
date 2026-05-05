@@ -225,7 +225,8 @@ const AboutMe = () => {
           {[
             { val: 3, suffix: "+", lbl: "Years Exp." },
             { val: 2, suffix: "", lbl: "Companies" },
-            { val: "Java", suffix: "", lbl: "Primary Stack" },
+            { val: "Java", suffix: "", lbl: "Backend · Java" },
+            { val: "Python", suffix: "", lbl: "Backend · Python" },
             { val: "AWS", suffix: "", lbl: "Cloud" },
             { val: "Fintech", suffix: "", lbl: "Domain" },
           ].map((s) => (
