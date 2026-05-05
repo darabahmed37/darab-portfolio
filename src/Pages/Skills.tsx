@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Heading from "../Components/Heading.tsx";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -425,6 +425,7 @@ const categories: Category[] = [
 ───────────────────────────────────────────── */
 
 function BackendDiagram() {
+  const [active, setActive] = useState(0);
   const steps = [
     { label: "Client", sub: "HTTP Request", color: "#c778dd" },
     { label: "Controller", sub: "Route / Validate", color: "#f59e0b" },
@@ -432,17 +433,29 @@ function BackendDiagram() {
     { label: "Repository", sub: "DB / Cache", color: "#34d399" },
     { label: "Response", sub: "JSON / DTO", color: "#60a5fa" },
   ];
+  useEffect(() => {
+    const id = setInterval(() => setActive(p => (p + 1) % steps.length), 800);
+    return () => clearInterval(id);
+  }, []);
   return (
-    <div className="generic-diagram" style={{ "--diag-accent": "#c778dd" } as React.CSSProperties}>
-      <div className="gd-title">REST API Request Lifecycle</div>
-      <div className="gd-flow">
+    <div className="ad-wrap">
+      <div className="ad-title">REST API — Request Lifecycle</div>
+      <div className="ad-backend-flow">
         {steps.map((s, i) => (
-          <div key={s.label} className="gd-flow-row">
-            <div className="gd-step" style={{ borderColor: s.color, color: s.color }}>
-              <span className="gd-step-label">{s.label}</span>
-              <span className="gd-step-sub">{s.sub}</span>
+          <div key={s.label} className="ad-backend-row">
+            <div
+              className={`ad-backend-step ${active === i ? "ad-step-active" : active > i ? "ad-step-done" : ""}`}
+              style={{ "--sc": s.color } as React.CSSProperties}
+            >
+              <span className="ad-step-label">{s.label}</span>
+              <span className="ad-step-sub">{s.sub}</span>
             </div>
-            {i < steps.length - 1 && <div className="gd-flow-arrow">↓</div>}
+            {i < steps.length - 1 && (
+              <div className={`ad-connector ${active > i ? "ad-conn-done" : active === i ? "ad-conn-active" : ""}`}
+                style={{ "--sc": s.color } as React.CSSProperties}>
+                <span className="ad-conn-dot" />
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -451,52 +464,105 @@ function BackendDiagram() {
 }
 
 function FintechDiagram() {
-  const states = [
+  const [state, setState] = useState(0); // 0=init 1=proc 2=commit 3=rollback
+  useEffect(() => {
+    let cancelled = false;
+    const run = async () => {
+      const delay = (ms: number) => new Promise<void>(r => { if (!cancelled) setTimeout(r, ms); });
+      while (!cancelled) {
+        setState(0); await delay(700);
+        setState(1); await delay(1300);
+        const commit = Math.random() > 0.4;
+        setState(commit ? 2 : 3); await delay(1800);
+      }
+    };
+    run();
+    return () => { cancelled = true; };
+  }, []);
+  const stateData = [
     { id: "INIT", label: "INITIATED", color: "#6b7280" },
     { id: "PROC", label: "PROCESSING", color: "#f59e0b" },
-    { id: "OK", label: "COMMITTED", color: "#34d399" },
-    { id: "FAIL", label: "ROLLED BACK", color: "#f87171" },
+    { id: "OK",   label: "COMMITTED",  color: "#34d399" },
+    { id: "FAIL", label: "ROLLED BACK",color: "#f87171" },
   ];
   return (
-    <div className="generic-diagram" style={{ "--diag-accent": "#a78bfa" } as React.CSSProperties}>
-      <div className="gd-title">Payment Transaction — State Machine</div>
-      <div className="ft-states">
-        {states.map((s) => (
-          <div key={s.id} className="ft-state" style={{ borderColor: s.color, color: s.color }}>
-            <span className="ft-state-id">{s.id}</span>
-            <span className="ft-state-label">{s.label}</span>
+    <div className="ad-wrap">
+      <div className="ad-title">Payment Transaction — State Machine</div>
+      <div className="ad-ft-flow">
+        {[0, 1].map(i => (
+          <div key={i} className="ad-ft-row">
+            <div className={`ad-ft-state ${state === i ? "ad-ft-active" : state > i ? "ad-ft-done" : ""}`}
+              style={{ "--sc": stateData[i].color } as React.CSSProperties}>
+              <span className="ad-ft-id">{stateData[i].id}</span>
+              <span className="ad-ft-lbl">{stateData[i].label}</span>
+              {state === 1 && i === 1 && <span className="ad-spin" />}
+            </div>
+            {i === 0 && <div className={`ad-ft-arrow ${state >= 1 ? "ad-ft-arr-on" : ""}`}>↓</div>}
           </div>
         ))}
-      </div>
-      <div className="ft-rules">
-        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#f59e0b" }}>INIT → PROCESSING</span><span>Begin atomic transaction</span></div>
-        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#34d399" }}>PROCESSING → COMMITTED</span><span>All checks pass, commit</span></div>
-        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#f87171" }}>PROCESSING → ROLLED BACK</span><span>Any failure → full rollback</span></div>
-        <div className="ft-rule"><span className="ft-arrow" style={{ color: "#60a5fa" }}>Idempotency key</span><span>Prevents duplicate on retry</span></div>
+        <div className="ad-ft-fork">
+          <div className={`ad-ft-state ${state === 2 ? "ad-ft-active" : ""}`}
+            style={{ "--sc": "#34d399" } as React.CSSProperties}>
+            <span className="ad-ft-id">OK</span><span className="ad-ft-lbl">COMMITTED</span>
+          </div>
+          <div className="ad-ft-fork-sep">|</div>
+          <div className={`ad-ft-state ${state === 3 ? "ad-ft-active" : ""}`}
+            style={{ "--sc": "#f87171" } as React.CSSProperties}>
+            <span className="ad-ft-id">FAIL</span><span className="ad-ft-lbl">ROLLED BACK</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 function CloudDiagram() {
-  const pipeline = [
-    { stage: "Push", detail: "git push → trigger", color: "#abb2bf" },
-    { stage: "Build", detail: "Compile + lint", color: "#f59e0b" },
-    { stage: "Test", detail: "Unit + integration", color: "#c778dd" },
-    { stage: "Image", detail: "Docker build", color: "#60a5fa" },
-    { stage: "Deploy", detail: "AWS / Beanstalk", color: "#34d399" },
+  const stages = [
+    { stage: "Push",   detail: "git push → trigger", color: "#abb2bf" },
+    { stage: "Build",  detail: "Compile + lint",      color: "#f59e0b" },
+    { stage: "Test",   detail: "Unit + integration",  color: "#c778dd" },
+    { stage: "Image",  detail: "Docker build",        color: "#60a5fa" },
+    { stage: "Deploy", detail: "AWS / Beanstalk",     color: "#34d399" },
   ];
+  const [status, setStatus] = useState<number[]>([0, 0, 0, 0, 0]); // 0=pending 1=running 2=done
+  useEffect(() => {
+    let cancelled = false;
+    const run = async () => {
+      const delay = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
+      while (!cancelled) {
+        const s = [0, 0, 0, 0, 0];
+        setStatus([...s]);
+        await delay(600);
+        for (let i = 0; i < stages.length; i++) {
+          if (cancelled) return;
+          s[i] = 1; setStatus([...s]);
+          await delay(850);
+          s[i] = 2; setStatus([...s]);
+          await delay(250);
+        }
+        await delay(1800);
+      }
+    };
+    run();
+    return () => { cancelled = true; };
+  }, []);
   return (
-    <div className="generic-diagram" style={{ "--diag-accent": "#60a5fa" } as React.CSSProperties}>
-      <div className="gd-title">CI/CD Pipeline — GitHub Actions</div>
-      <div className="cloud-pipeline">
-        {pipeline.map((p, i) => (
-          <div key={p.stage} className="cp-row">
-            <div className="cp-stage" style={{ borderColor: p.color, background: `color-mix(in srgb, ${p.color} 8%, transparent)` }}>
-              <span className="cp-stage-name" style={{ color: p.color }}>{p.stage}</span>
-              <span className="cp-detail">{p.detail}</span>
+    <div className="ad-wrap">
+      <div className="ad-title">CI/CD Pipeline — GitHub Actions</div>
+      <div className="ad-pipeline">
+        {stages.map((p, i) => (
+          <div key={p.stage} className="ad-pipe-row">
+            <div className={`ad-pipe-stage ${status[i] === 1 ? "ad-pipe-running" : status[i] === 2 ? "ad-pipe-done" : "ad-pipe-pending"}`}
+              style={{ "--sc": p.color } as React.CSSProperties}>
+              <span className="ad-pipe-icon">
+                {status[i] === 2 ? "✓" : status[i] === 1 ? <span className="ad-spin" /> : "·"}
+              </span>
+              <span className="ad-pipe-name">{p.stage}</span>
+              <span className="ad-pipe-detail">{p.detail}</span>
             </div>
-            {i < pipeline.length - 1 && <div className="cp-arrow">→</div>}
+            {i < stages.length - 1 && (
+              <div className={`ad-pipe-conn ${status[i] === 2 ? "ad-pipe-conn-done" : ""}`}>→</div>
+            )}
           </div>
         ))}
       </div>
@@ -505,68 +571,86 @@ function CloudDiagram() {
 }
 
 function ProductionDiagram() {
+  const [cur, setCur] = useState(-1);
   const steps = [
-    { num: "1", label: "Alert fires", detail: "Error rate spike / timeout", color: "#f87171" },
-    { num: "2", label: "Read logs", detail: "Trace IDs → stack traces", color: "#f59e0b" },
-    { num: "3", label: "Isolate scope", detail: "Narrow to service / query", color: "#c778dd" },
-    { num: "4", label: "Root cause", detail: "Race cond / bad deploy / query", color: "#a78bfa" },
-    { num: "5", label: "Fix + verify", detail: "Patch + regression test", color: "#34d399" },
+    { num: "1", label: "Alert fires",  detail: "Error rate spike detected", color: "#f87171" },
+    { num: "2", label: "Read logs",    detail: "Trace IDs → stack traces",  color: "#f59e0b" },
+    { num: "3", label: "Isolate",      detail: "Narrow to service / query", color: "#c778dd" },
+    { num: "4", label: "Root cause",   detail: "Race condition identified", color: "#a78bfa" },
+    { num: "5", label: "Fix + verify", detail: "Patch + regression test",   color: "#34d399" },
   ];
+  useEffect(() => {
+    let cancelled = false;
+    const run = async () => {
+      const delay = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
+      while (!cancelled) {
+        setCur(-1); await delay(500);
+        for (let i = 0; i < steps.length; i++) {
+          if (cancelled) return;
+          setCur(i); await delay(850);
+        }
+        await delay(2000);
+      }
+    };
+    run();
+    return () => { cancelled = true; };
+  }, []);
   return (
-    <div className="generic-diagram" style={{ "--diag-accent": "#fb923c" } as React.CSSProperties}>
-      <div className="gd-title">Production Debugging — RCA Loop</div>
-      <div className="prod-steps">
+    <div className="ad-wrap">
+      <div className="ad-title">Production Debugging — RCA Loop</div>
+      <div className="ad-rca-steps">
         {steps.map((s, i) => (
-          <div key={s.num} className="prod-row">
-            <div className="prod-step">
-              <span className="prod-num" style={{ background: s.color }}>{s.num}</span>
-              <div>
-                <span className="prod-label">{s.label}</span>
-                <span className="prod-detail">{s.detail}</span>
-              </div>
-            </div>
-            {i < steps.length - 1 && <div className="prod-arrow">↓</div>}
+          <div key={s.num}
+            className={`ad-rca-step ${i <= cur ? "ad-rca-active" : ""} ${i === cur ? "ad-rca-current" : ""}`}
+            style={{ "--sc": s.color } as React.CSSProperties}>
+            <span className="ad-rca-num"
+              style={{ background: i <= cur ? s.color : "transparent", borderColor: s.color, color: i <= cur ? "#0d1117" : s.color } as React.CSSProperties}>
+              {i < cur ? "✓" : s.num}
+            </span>
+            <div><span className="ad-rca-label">{s.label}</span><span className="ad-rca-detail">{s.detail}</span></div>
           </div>
         ))}
+        {cur === steps.length - 1 && <div className="ad-rca-resolved">🟢 Resolved · regression test added</div>}
       </div>
     </div>
   );
 }
 
 function ConcurrencyDiagram() {
+  const [tick, setTick] = useState(0);
+  const tasks = ["Task A", "Task B", "Task C", "Task D", "Task E"];
+  const threads = ["Thread-1", "Thread-2", "Thread-3"];
+  useEffect(() => {
+    const id = setInterval(() => setTick(p => p + 1), 900);
+    return () => clearInterval(id);
+  }, []);
+  const activeThread = tick % threads.length;
+  const activeTask   = tick % tasks.length;
   return (
-    <div className="concurrency-diagram" aria-label="Thread pool diagram">
-      <div className="cd-title">Thread Pool — Task Execution Flow</div>
-      <div className="cd-body">
-        <div className="cd-col">
-          <div className="cd-box cd-submit">Task Queue</div>
-          <div className="cd-arrow">↓</div>
-          <div className="cd-tasks">
-            {["Task A", "Task B", "Task C", "Task D"].map((t) => (
-              <div key={t} className="cd-task">
-                {t}
-              </div>
-            ))}
-          </div>
+    <div className="ad-wrap">
+      <div className="ad-title">Thread Pool — Task Execution Flow</div>
+      <div className="ad-cc-body">
+        <div className="ad-cc-col">
+          <div className="ad-cc-header">Task Queue</div>
+          {tasks.map((t, i) => (
+            <div key={t} className={`ad-cc-task ${i === activeTask ? "ad-cc-dispatching" : ""}`}>{t}</div>
+          ))}
         </div>
-        <div className="cd-arrow-h">→</div>
-        <div className="cd-col">
-          <div className="cd-box cd-pool">ExecutorService</div>
-          <div className="cd-arrow">↓</div>
-          <div className="cd-threads">
-            {["Thread-1", "Thread-2", "Thread-3"].map((t) => (
-              <div key={t} className="cd-thread">
-                <span className="cd-dot" />
-                {t}
-              </div>
-            ))}
-          </div>
+        <div className="ad-cc-sep">→</div>
+        <div className="ad-cc-col">
+          <div className="ad-cc-header">ExecutorService</div>
+          {threads.map((t, i) => (
+            <div key={t} className={`ad-cc-thread ${activeThread === i ? "ad-cc-busy" : ""}`}>
+              <span className="ad-cc-dot" />
+              <span>{t}</span>
+              <span className="ad-cc-status">{activeThread === i ? "busy" : "idle"}</span>
+            </div>
+          ))}
         </div>
-        <div className="cd-arrow-h">→</div>
-        <div className="cd-col">
-          <div className="cd-box cd-result">Results</div>
-          <div className="cd-arrow">↓</div>
-          <div className="cd-merged">Aggregated Output</div>
+        <div className="ad-cc-sep">→</div>
+        <div className="ad-cc-col">
+          <div className="ad-cc-header">Results</div>
+          <div className="ad-cc-result">Aggregated<br/>Output</div>
         </div>
       </div>
     </div>
@@ -574,33 +658,42 @@ function ConcurrencyDiagram() {
 }
 
 function DatabaseDiagram() {
+  const [phase, setPhase] = useState(0); // 0=before 1=transition 2=after
+  useEffect(() => {
+    let cancelled = false;
+    const run = async () => {
+      const delay = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
+      while (!cancelled) {
+        setPhase(0); await delay(2000);
+        setPhase(1); await delay(600);
+        setPhase(2); await delay(2200);
+      }
+    };
+    run();
+    return () => { cancelled = true; };
+  }, []);
   return (
-    <div className="db-diagram" aria-label="Query optimization before/after">
-      <div className="db-title">Query Optimization — Before vs After</div>
-      <div className="db-split">
-        <div className="db-card db-before">
-          <div className="db-badge bad">Before</div>
-          <pre className="db-code">{`SELECT * FROM orders
-WHERE user_id = 42;
--- Full table scan
--- Cost: 8,400`}</pre>
-          <div className="db-metric bad">⚠ Seq Scan · 420ms</div>
+    <div className="ad-wrap">
+      <div className="ad-title">Query Optimization — Before vs After</div>
+      <div className="ad-db-split">
+        <div className={`ad-db-card ${phase === 0 ? "ad-db-highlight" : "ad-db-dim"}`}>
+          <div className="ad-db-badge ad-db-bad">Before</div>
+          <pre className="ad-db-code">{`SELECT * FROM orders\nWHERE user_id = 42;\n-- Full table scan\n-- Cost: 8,400`}</pre>
+          <div className="ad-db-bar-wrap"><div className={`ad-db-bar ad-db-bar-bad ${phase === 0 ? "ad-db-bar-fill" : ""}`} /></div>
+          <div className="ad-db-metric ad-db-bad">⚠ Seq Scan · 420ms</div>
         </div>
-        <div className="db-arrow-mid">→</div>
-        <div className="db-card db-after">
-          <div className="db-badge good">After</div>
-          <pre className="db-code">{`CREATE INDEX idx_orders_user
-ON orders(user_id);
-
-SELECT id, total FROM orders
-WHERE user_id = 42;
--- Index scan · Cost: 4`}</pre>
-          <div className="db-metric good">✓ Index Scan · 3ms</div>
+        <div className="ad-db-mid">→</div>
+        <div className={`ad-db-card ${phase === 2 ? "ad-db-highlight" : "ad-db-dim"}`}>
+          <div className="ad-db-badge ad-db-good">After</div>
+          <pre className="ad-db-code">{`CREATE INDEX idx_orders_user\nON orders(user_id);\n\nSELECT id, total\nWHERE user_id = 42;\n-- Cost: 4`}</pre>
+          <div className="ad-db-bar-wrap"><div className={`ad-db-bar ad-db-bar-good ${phase === 2 ? "ad-db-bar-fill" : ""}`} /></div>
+          <div className="ad-db-metric ad-db-good">✓ Index Scan · 3ms</div>
         </div>
       </div>
     </div>
   );
 }
+
 
 /* ─────────────────────────────────────────────
    PANEL
