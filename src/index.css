@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -1733,5 +1734,537 @@ li.react-datepicker__time-list-item--selected {
         width: 2rem;
         height: 2rem;
         font-size: 1rem;
+    }
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT ME PAGE — REDESIGNED
+═══════════════════════════════════════════ */
+
+/* ── Inter font for prose sections ── */
+.am-page {
+    font-family: "Inter", sans-serif;
+}
+
+/* ── Hero bio ── */
+.am-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 0 2.5rem;
+    border-bottom: 1px solid rgba(171,178,191,0.08);
+    margin-bottom: 2.5rem;
+}
+
+.am-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c778dd;
+    font-family: "Fira Code", monospace;
+}
+
+.am-hero-label::before {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background: #c778dd;
+}
+
+.am-name {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.am-name-accent {
+    background: linear-gradient(135deg, #c778dd 0%, #a78bfa 60%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.am-tagline {
+    font-size: 1.05rem;
+    color: #abb2bf;
+    line-height: 1.75;
+    max-width: 62ch;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.am-tagline strong {
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+/* ── Quick stats strip ── */
+.am-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.am-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    background: rgba(199,120,221,0.06);
+    border: 1px solid rgba(199,120,221,0.18);
+    border-radius: 10px;
+    padding: 0.7rem 1.1rem;
+    min-width: 80px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.am-stat:hover {
+    border-color: rgba(199,120,221,0.45);
+    box-shadow: 0 0 14px -4px rgba(199,120,221,0.3);
+}
+
+.am-stat-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #c778dd;
+    line-height: 1;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.am-stat-lbl {
+    font-size: 0.65rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: "Fira Code", monospace;
+    text-align: center;
+}
+
+/* ── Section headings ── */
+.am-section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 2.5rem 0 1.5rem;
+}
+
+.am-section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.am-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.am-section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(199,120,221,0.3), transparent);
+}
+
+/* ── Skill Bars ── */
+.am-skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.am-skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.am-skill-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.am-skill-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    font-family: "Fira Code", monospace;
+}
+
+.am-skill-pct {
+    font-size: 0.72rem;
+    color: #6b7280;
+    font-family: "Fira Code", monospace;
+}
+
+.am-skill-track {
+    height: 5px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.am-skill-fill {
+    height: 100%;
+    border-radius: 999px;
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.am-skill-fill.animated {
+    /* width is set inline via style */
+}
+
+/* ── Timeline ── */
+.am-timeline {
+    position: relative;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.am-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.45rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #c778dd, rgba(199,120,221,0.15));
+    border-radius: 2px;
+}
+
+.am-tl-entry {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.am-tl-entry:last-child {
+    padding-bottom: 0;
+}
+
+/* Dot on the line */
+.am-tl-dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #282c33;
+    border: 2px solid #c778dd;
+    box-shadow: 0 0 10px rgba(199,120,221,0.5);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.am-tl-entry:hover .am-tl-dot {
+    box-shadow: 0 0 18px rgba(199,120,221,0.8);
+    transform: scale(1.2);
+}
+
+.am-tl-dot.active {
+    background: #c778dd;
+    animation: tl-dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes tl-dot-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(199,120,221,0.6); }
+    50%       { box-shadow: 0 0 0 6px rgba(199,120,221,0); }
+}
+
+.am-tl-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(171,178,191,0.1);
+    border-radius: 12px;
+    padding: 1.25rem 1.35rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.am-tl-card:hover {
+    border-color: rgba(199,120,221,0.35);
+    box-shadow: 0 8px 28px -8px rgba(199,120,221,0.2);
+    transform: translateX(3px);
+}
+
+.am-tl-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.am-tl-role {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.am-tl-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #c778dd;
+    background: rgba(199,120,221,0.1);
+    border: 1px solid rgba(199,120,221,0.25);
+    border-radius: 999px;
+    padding: 0.2rem 0.7rem;
+    white-space: nowrap;
+    font-family: "Fira Code", monospace;
+}
+
+.am-tl-badge.current {
+    color: #34d399;
+    background: rgba(52,211,153,0.1);
+    border-color: rgba(52,211,153,0.3);
+    animation: badge-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-glow {
+    0%, 100% { box-shadow: none; }
+    50%       { box-shadow: 0 0 8px rgba(52,211,153,0.4); }
+}
+
+.am-tl-company {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #c778dd;
+    margin: 0 0 0.6rem;
+    font-family: "Fira Code", monospace;
+}
+
+.am-tl-desc {
+    font-size: 0.84rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0 0 0.85rem;
+    font-family: "Inter", sans-serif;
+}
+
+.am-tl-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.am-tl-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: #abb2bf;
+    line-height: 1.55;
+    font-family: "Inter", sans-serif;
+}
+
+.am-tl-bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c778dd;
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+    opacity: 0.7;
+}
+
+/* ── Education card ── */
+.am-edu-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(171,178,191,0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1.35rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.25s ease;
+}
+
+.am-edu-card:hover {
+    border-color: rgba(96,165,250,0.35);
+}
+
+.am-edu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background: rgba(96,165,250,0.1);
+    border: 1px solid rgba(96,165,250,0.2);
+    color: #60a5fa;
+    flex-shrink: 0;
+}
+
+.am-edu-degree {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0 0 0.2rem;
+    font-family: "Inter", sans-serif;
+}
+
+.am-edu-inst {
+    font-size: 0.82rem;
+    color: #60a5fa;
+    font-family: "Fira Code", monospace;
+    margin: 0 0 0.2rem;
+}
+
+.am-edu-period {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-family: "Fira Code", monospace;
+}
+
+/* ── Philosophy cards ── */
+.am-philosophy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.am-phil-card {
+    position: relative;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(171,178,191,0.08);
+    border-left: 3px solid var(--phil-accent, #c778dd);
+    border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.25rem;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.am-phil-card:hover {
+    background: rgba(255,255,255,0.035);
+    border-color: var(--phil-accent, #c778dd);
+    transform: translateX(4px);
+}
+
+.am-phil-text {
+    font-size: 0.9rem;
+    color: #abb2bf;
+    line-height: 1.75;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.am-phil-text strong {
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+/* ── Contact CTA ── */
+.am-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(199,120,221,0.04);
+    border: 1px solid rgba(199,120,221,0.15);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.am-contact-text {
+    font-size: 0.92rem;
+    color: #abb2bf;
+    line-height: 1.7;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.am-contact-text strong {
+    color: #e2e8f0;
+}
+
+.am-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #c778dd;
+    border: 1px solid rgba(199,120,221,0.35);
+    border-radius: 8px;
+    padding: 0.5rem 1.1rem;
+    text-decoration: none;
+    font-family: "Fira Code", monospace;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.am-contact-link:hover {
+    background: rgba(199,120,221,0.1);
+    border-color: rgba(199,120,221,0.6);
+    transform: translateX(3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .am-skills-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .am-name {
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+    }
+
+    .am-stats {
+        gap: 0.5rem;
+    }
+
+    .am-stat {
+        min-width: 68px;
+        padding: 0.55rem 0.75rem;
+    }
+
+    .am-stat-val {
+        font-size: 1.25rem;
+    }
+
+    .am-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .am-tl-dot {
+        left: -1.5rem;
+    }
+
+    .am-tl-card {
+        padding: 1rem 1.1rem;
+    }
+
+    .am-edu-card {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 }
