@@ -1,6 +1,10 @@
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router";
-import coderImage from "@assets/coder.svg";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import LiveTerminal from "./LiveTerminal";
+import LiveMetrics from "./LiveMetrics";
+
 
 
 /* Scrolling marquee — two copies for seamless loop */
@@ -13,6 +17,7 @@ const marqueeItems = [
 ];
 
 const Intro = () => {
+  const [tab, setTab] = useState<"terminal" | "metrics">("terminal");
   return (
     <div className="hero-root">
       {/* Subtle dot-grid background */}
@@ -89,12 +94,40 @@ const Intro = () => {
           </div>
         </div>
 
-        {/* ── Right (illustration) ── */}
+        {/* ── Right (live animations) ── */}
         <div className="hero-right">
-          <div className="hero-img-wrap">
-            <img src={coderImage} alt="Engineer illustration" className="hero-coder-img" />
-            {/* Glow orb */}
+          {/* Tab switcher */}
+          <div className="hero-anim-tabs">
+            <button
+              className={`hero-anim-tab ${tab === "terminal" ? "is-active" : ""}`}
+              onClick={() => setTab("terminal")}
+            >
+              ⌨ Terminal
+            </button>
+            <button
+              className={`hero-anim-tab ${tab === "metrics" ? "is-active" : ""}`}
+              onClick={() => setTab("metrics")}
+            >
+              📊 Metrics
+            </button>
+          </div>
+
+
+          {/* Animation panel — fixed height so content never resizes it */}
+          <div className="hero-anim-panel">
             <div className="hero-orb" aria-hidden="true" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={tab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.22, ease: "easeInOut" }}
+                style={{ height: "100%" }}
+              >
+                {tab === "terminal" ? <LiveTerminal /> : <LiveMetrics />}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* "Open to work" card */}
@@ -105,6 +138,7 @@ const Intro = () => {
             </span>
           </div>
         </div>
+
       </div>
 
       {/* ── Scrolling marquee ── */}
