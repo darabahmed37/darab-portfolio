@@ -6,7 +6,7 @@ const AboutMe = () => {
       <Heading title={"about me"} />
       <div>
         <section>
-          <div className="max-w-6xl">
+          <div className="w-full">
             <p className="text-lg text-gray leading-relaxed mb-6">
               I'm{" "}
               <span className="font-semibold text-primary">Darab Ahmed</span> —
@@ -41,7 +41,7 @@ const AboutMe = () => {
               implementation of specs handed to me.
             </p>
 
-            <ul className="list-disc list-inside text-gray mb-8 space-y-1">
+            <ul className="list-disc list-outside pl-5 text-gray mb-8 space-y-1">
               <li>
                 <span className="font-medium text-white">Core Languages:</span>{" "}
                 Java, Python, TypeScript, SQL
@@ -94,7 +94,7 @@ const AboutMe = () => {
                 of features across backend logic, database design, and frontend
                 integration.
               </p>
-              <ul className="list-disc list-inside text-gray space-y-2 mb-4">
+              <ul className="list-disc list-outside pl-5 text-gray space-y-2 mb-4">
                 <li>
                   Designed and delivered enterprise payment system features
                   end-to-end — owning domain modelling, business logic, API
@@ -148,7 +148,7 @@ const AboutMe = () => {
                 projects across multiple client domains, building systems from
                 scratch and migrating legacy applications.
               </p>
-              <ul className="list-disc list-inside text-gray space-y-2 mb-4">
+              <ul className="list-disc list-outside pl-5 text-gray space-y-2 mb-4">
                 <li>
                   Designed and maintained web applications using Django, Django
                   REST Framework, Flask, React, and Vue.js — taking full

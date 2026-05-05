@@ -249,6 +249,8 @@ li.react-datepicker__time-list-item--selected {
     font-size: 0.78rem;
     color: #6b7280;
     letter-spacing: 0.03em;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* ── Chevron ── */
@@ -302,6 +304,8 @@ li.react-datepicker__time-list-item--selected {
     color: #abb2bf;
     line-height: 1.65;
     margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* ── Diagram wrapper ── */
@@ -985,6 +989,8 @@ li.react-datepicker__time-list-item--selected {
     line-height: 1.7;
     max-width: 50ch;
     margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* Impact badges */
@@ -1357,4 +1363,375 @@ li.react-datepicker__time-list-item--selected {
     color: #4b5563;
     letter-spacing: 0.03em;
     margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE FIRST
+   Breakpoints:
+     xs  : < 480px   (small phones)
+     sm  : 480px+    (large phones)
+     md  : 768px+    (tablets)
+     lg  : 1024px+   (small desktops)
+     xl  : 1280px+   (HD / large laptops)
+     2xl : 1536px+   (wide / 4K)
+═══════════════════════════════════════════ */
+
+/* ── Hero section ── */
+/* Mobile: single-column, tighter spacing */
+@media (max-width: 767px) {
+    .hero-root {
+        padding-top: 4rem;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        padding: 1.5rem 0 1rem;
+        gap: 1.25rem;
+    }
+
+    .hero-left {
+        gap: 1rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .hero-headline {
+        font-size: clamp(1.5rem, 7vw, 2.2rem);
+    }
+
+    .hero-headline-grad {
+        white-space: normal;
+        font-size: clamp(1.4rem, 6.5vw, 2rem);
+    }
+
+    .hero-sub {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .hero-badges {
+        gap: 0.4rem;
+    }
+
+    .hero-badge {
+        min-width: 58px;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .hero-cta-primary,
+    .hero-cta-secondary {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-marquee-wrap {
+        margin-top: 0.75rem;
+    }
+}
+
+/* Tablet: show right column partially */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-inner {
+        flex-direction: column;
+        padding: 2rem 0 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .hero-right {
+        display: flex;
+        width: 60%;
+        align-self: center;
+    }
+
+    .hero-img-wrap {
+        height: 18rem;
+    }
+}
+
+/* ── Stats bar ── */
+@media (max-width: 479px) {
+    .sk-stats-bar {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .sk-stat {
+        min-width: unset;
+        border-right: none;
+        border-bottom: 1px solid rgba(199, 120, 221, 0.12);
+        padding: 0.85rem 1rem;
+    }
+
+    .sk-stat:last-child {
+        border-bottom: none;
+    }
+
+    .sk-stat-value {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .sk-stat {
+        min-width: 100px;
+    }
+}
+
+/* ── Principles grid ── */
+@media (max-width: 479px) {
+    .sk-principles {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Tech stack grid ── */
+@media (max-width: 479px) {
+    .sk-tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Skills Teaser cards ── */
+@media (max-width: 479px) {
+    .st-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .st-headline {
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+    }
+
+    .st-cta-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.88rem;
+        padding: 0.8rem 1.25rem;
+    }
+}
+
+/* ── Home Skills Showcase ── */
+@media (max-width: 479px) {
+    .hsc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Expertise intro text ── */
+@media (max-width: 767px) {
+    .expertise-intro {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .expertise-header {
+        padding: 0.85rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .expertise-label {
+        font-size: 0.9rem;
+    }
+
+    .expertise-tagline {
+        font-size: 0.72rem;
+    }
+
+    .expertise-body {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .skill-title {
+        font-size: 0.85rem;
+    }
+
+    .skill-desc {
+        font-size: 0.8rem;
+    }
+}
+
+/* ── Diagrams — prevent horizontal overflow ── */
+/* Concurrency diagram: stack columns vertically on mobile */
+@media (max-width: 599px) {
+    .concurrency-diagram {
+        overflow-x: auto;
+    }
+
+    .cd-body {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .cd-arrow-h {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    /* Database diagram: stack before/after vertically */
+    .db-split {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .db-card {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .db-arrow-mid {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    /* Backend API flow: allow wrapping */
+    .gd-step {
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* Cloud pipeline: wrap */
+    .cloud-pipeline {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .cp-row {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    /* Fintech states: wrap */
+    .ft-states {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .ft-state {
+        min-width: 72px;
+    }
+
+    .ft-rule {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    /* Generic diagram overflow fallback */
+    .generic-diagram,
+    .concurrency-diagram,
+    .db-diagram {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Production steps */
+    .prod-step {
+        gap: 0.5rem;
+    }
+}
+
+/* ── Navbar on mobile ── */
+@media (max-width: 767px) {
+    /* Give the nav some breathing room */
+    nav {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* ── About Me page ── */
+@media (max-width: 767px) {
+    .text-2xl {
+        font-size: 1.25rem !important;
+    }
+
+    .text-xl {
+        font-size: 1.05rem !important;
+    }
+
+    .text-lg {
+        font-size: 0.95rem !important;
+    }
+}
+
+/* ── Footer ── */
+@media (max-width: 479px) {
+    footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* ── Section title separator line ── */
+@media (max-width: 479px) {
+    .sk-section-title {
+        font-size: 0.68rem;
+        margin: 2rem 0 0.85rem 0;
+    }
+}
+
+/* ── HD / Large screens ── */
+@media (min-width: 1280px) {
+    .hero-inner {
+        padding: 4rem 1.5rem 2.5rem;
+        gap: 3rem;
+    }
+
+    .hero-headline {
+        font-size: clamp(2.2rem, 3vw, 3.2rem);
+    }
+
+    .sk-principles {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sk-tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── Wide / ultra-wide screens ── */
+@media (min-width: 1536px) {
+    .hero-inner {
+        padding: 5rem 2rem 3rem;
+    }
+
+    .expertise-intro {
+        font-size: 1.05rem;
+    }
+}
+
+/* ── Small phones edge-cases ── */
+@media (max-width: 359px) {
+    .hero-badge {
+        min-width: 52px;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .hero-badge-val {
+        font-size: 0.8rem;
+    }
+
+    .hero-badge-lbl {
+        font-size: 0.58rem;
+    }
+
+    .hero-cta-primary,
+    .hero-cta-secondary {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .expertise-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
 }

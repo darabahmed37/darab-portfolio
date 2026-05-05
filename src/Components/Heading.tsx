@@ -17,7 +17,7 @@ const Heading = ({ title, children }: HeadingProps) => {
         <span className="text-primary font-medium">#</span>
         {title}
       </h2>
-      <div className="w-72 h-px !bg-primary" />
+      <div className="flex-1 h-px !bg-primary" />
       {children ?? children}
     </div>
   );

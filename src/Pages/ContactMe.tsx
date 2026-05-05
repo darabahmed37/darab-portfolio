@@ -7,11 +7,11 @@ const ContactMe = () => {
   const [meetingDateTime, setMeetingDateTime] = useState<Date | null>(null);
 
   return (
-    <section className="min-h-screen bg-gray-900 text-white px-6 py-12 md:px-24">
+    <section className="min-h-screen text-white py-6">
       <div className="max-w-4xl mx-auto">
         <Heading title="Contact Me" />
 
-        <div className="bg-gray-800 rounded-lg shadow-lg mt-6">
+        <div className="rounded-lg shadow-lg mt-6">
           <form className="space-y-6" autoComplete={"off"}>
             {/* Name & Email */}
             <div className="flex flex-col md:flex-row gap-6">

@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="max-w-lg w-full mx-4 p-6 rounded-xl shadow-2xl border border-primary  text-gray !bg-background/55"
+            className="max-w-lg w-full mx-4 p-6 rounded-xl shadow-2xl border border-primary text-gray !bg-background/55 overflow-y-auto max-h-[85vh]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
@@ -30,13 +30,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           >
             {/* Header */}
             <header className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-primary tracking-wide">
+              <h2 className="text-lg sm:text-2xl font-bold text-primary tracking-wide pr-4">
                 {title}
               </h2>
               <button
                 onClick={onClose}
                 aria-label="Close modal"
-                className="text-primary cursor-pointer hover:text-white text-xl transition duration-200"
+                className="text-primary cursor-pointer hover:text-white text-xl transition duration-200 flex-shrink-0"
               >
                 ✕
               </button>
