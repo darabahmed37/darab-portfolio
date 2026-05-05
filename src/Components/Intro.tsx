@@ -1,7 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router";
 import coderImage from "@assets/coder.svg";
-import meshImage from "@assets/mesh.svg";
 
 
 /* Scrolling marquee — two copies for seamless loop */
@@ -94,7 +93,6 @@ const Intro = () => {
         <div className="hero-right">
           <div className="hero-img-wrap">
             <img src={coderImage} alt="Engineer illustration" className="hero-coder-img" />
-            <img src={meshImage} alt="" className="hero-mesh" aria-hidden="true" />
             {/* Glow orb */}
             <div className="hero-orb" aria-hidden="true" />
           </div>

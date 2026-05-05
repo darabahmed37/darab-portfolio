@@ -872,7 +872,7 @@ li.react-datepicker__time-list-item--selected {
     position: relative;
     z-index: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     max-width: 72rem;
     margin: 0 auto;
@@ -881,7 +881,9 @@ li.react-datepicker__time-list-item--selected {
 
 /* ── Left column ── */
 .hero-left {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;            /* prevent typed text from blowing flex column wider */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -1030,11 +1032,13 @@ li.react-datepicker__time-list-item--selected {
 
 /* ── Right column ── */
 .hero-right {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;            /* lock column to its flex share */
     display: none;
     flex-direction: column;
     align-items: center;
     position: relative;
+    min-height: 26rem;
 }
 
 @media (min-width: 1024px) {
@@ -1045,21 +1049,15 @@ li.react-datepicker__time-list-item--selected {
     position: relative;
     width: 100%;
     height: 24rem;
-    overflow: hidden;
+    /* no overflow:hidden — SVG should breathe */
 }
 
 .hero-coder-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
-    transform: scale(2.2) translate(-13px, 72px);
-}
-
-.hero-mesh {
-    position: absolute;
-    bottom: 43px;
-    right: 85px;
+    object-fit: contain;
+    object-position: center top;
+    /* no scale/translate hack — let the SVG fill naturally */
 }
 
 .hero-orb {
